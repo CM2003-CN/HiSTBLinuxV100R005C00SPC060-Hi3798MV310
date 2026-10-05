@@ -9,7 +9,7 @@ obj-y				+= hisilicon/
 
 ifeq ($(CONFIG_MSP),y)
 obj-y += common/
-obj-y += msp/
+#obj-y += msp/
 endif
 
 ifeq ($(HI_CONFIG_WIFI),y)

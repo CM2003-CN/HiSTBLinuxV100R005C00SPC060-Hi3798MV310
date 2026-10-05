@@ -555,8 +555,8 @@
 
 			clocks = <&hisilicon_clock PERI_CRG46_USB2CTRL>;
 			clock-names = "clk";
-			#status = "okay";
-            		status = "disabled";
+			status = "okay";
+			#	status = "disabled";
 		};
 
 		ohci:ohci@0xf9880000 {
@@ -566,8 +566,8 @@
 
 			clocks = <&hisilicon_clock PERI_CRG46_USB2CTRL>;
 			clock-names = "clk";
-			#status = "okay";
-            		status = "disabled";
+			status = "okay";
+			#	status = "disabled";
 		};
 
 		udc:hiudc@0xf98c0000 {
@@ -577,8 +577,8 @@
 
 			clocks = <&hisilicon_clock PERI_CRG46_USB2CTRL>;
 			clock-names = "clk";
-			#status = "okay";
-            		status = "disabled";
+			status = "okay";
+			# status = "disabled";
 		};
 
 		otg:hi3798cv200.hiusbotg {
@@ -586,8 +586,8 @@
 			reg = <0xf9880000 0x10000>,<0xf9890000 0x10000>,<0xf8a2012c 0x4>;
 			host_time = <1500 4>;
 			device_time = <1000 4>;
-			#status = "okay";
-            		status = "disabled";
+			status = "okay";
+			# status = "disabled";
 		};
 
 
@@ -717,8 +717,8 @@
 
 			cooling-min-state = <0>;
 			cooling-max-state = <7>;
-			#status = "okay";
-            		status = "disabled";
+			status = "okay";
+			# status = "disabled";
 
 		};
 
