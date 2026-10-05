@@ -171,7 +171,8 @@ endif
 		) done )
 ifeq ($(HI_DRV_BUILDTYPE),m)
 	$(AT)(find $(KERNEL_OUT_DIR)/drivers/common -name "*.ko" | xargs cp -f -t $(HI_MODULE_DIR)/)
-	$(AT)(find $(KERNEL_OUT_DIR)/drivers/msp -name "*.ko" | xargs cp -f -t $(HI_MODULE_DIR)/)
+#	$(AT)(find $(KERNEL_OUT_DIR)/drivers/msp -name "*.ko" | xargs cp -f -t $(HI_MODULE_DIR)/)
+	$(AT)(find $(KERNEL_OUT_DIR)/drivers/msp -name "*.ko" 2>/dev/null | xargs -r cp -f -t $(HI_MODULE_DIR)/)
 ifeq ($(CFG_HI_IR_TYPE_LIRC),y)
 	$(AT)make -j16 -C $(MSP_DIR)/drv/ir/lirc
 endif
