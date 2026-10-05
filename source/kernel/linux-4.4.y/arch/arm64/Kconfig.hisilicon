@@ -12,6 +12,13 @@ config ARCH_HI3798MV2X
 	help
 	  This enables support for Hisilicon Hi3798Mv200 platform.
 
+config ARCH_HI3798MV310
+        bool "Hisilicon Hi3798Mv310 family"
+        select ARM_HAS_SG_CHAIN
+        select PM_OPP
+        help
+          This enables support for Hisilicon Hi3798Mv310 platform.
+
 config HI3798MV2X_FPGA
 	bool "Enable HI3798MV2X Fpga config"
 	default n if ARCH_HI3798MV2X

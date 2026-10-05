@@ -61,6 +61,11 @@ extern u32 emmc_boot_tuning_phase;
 #include "himci_hi3798mv2x.c"
 #endif
 
+#if defined(CONFIG_ARCH_HI3798MV310)
+#include "himci_hi3798mv310.c"
+#endif
+
+
 static u32 detect_time = HI_MCI_DETECT_TIMEOUT;
 static u32 retry_count = MAX_RETRY_COUNT;
 static u32 request_timeout = HI_MCI_REQUEST_TIMEOUT;
