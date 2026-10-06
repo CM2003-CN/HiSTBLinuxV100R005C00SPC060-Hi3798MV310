@@ -81,7 +81,8 @@ else ifeq ($(CFG_HI_RECOVERY_SUPPORT),y)
         objects += keyled
     endif
 else
-    objects := gpio ir i2c pm pdm pq hdmi vo hifb tde jpeg cipher otp ddr sync adsp aiao adec vfmw vdec vpss mce omxvdec
+#    objects := gpio ir i2c pm pdm pq hdmi vo hifb tde jpeg cipher otp ddr sync adsp aiao adec vfmw vdec vpss mce omxvdec
+	objects := gpio ir i2c pm pdm hdmi hifb tde jpeg cipher otp ddr sync adsp aiao adec vdec mce omxvdec #pq vpss vo vfmw
 
     ifeq ($(CFG_HI_LOAD_CAS_IMAGE),y)
         objects += cas_image_load
@@ -154,7 +155,7 @@ else
     endif
 
     ifeq ($(CFG_HI_VENC_SUPPORT),y)
-        objects += venc
+#        objects += venc
     endif
 
     ifeq ($(CFG_HI_CI_SUPPORT),y)
