@@ -1,3 +1,42 @@
+------------------
+mv310-nomsp分支:
+
+目前32位不带MSP模块编译通过基本可以正常使用。
+
+USB				正常
+eMMC			芯片损坏，没测试
+SD/SDIO 控制器	正常		
+有线网络			正常
+无线网络			MT7668bs正常，RTL8822bs没测试
+
+Module                  Size  Used by
+rtl8822bs            2487380  0
+hi_sdio_detect          2727  0
+wlan_mt7668_sdio     1530637  0
+cfg80211              444230  2 wlan_mt7668_sdio,rtl8822bs
+hi_common              92373  0
+hi_mmz                 51788  1 hi_common
+hi_media                8732  2 hi_common,hi_mmz
+
+thermal温度不可用，需要msp里hi_pm.ko
+hdmi不可以用，需要msp
+硬件解码不可用
+
+编译内核
+make menuconfig
+make linux
+
+修改内核配置
+cd source/kernel/linux-4.4.y/
+make make ARCH=arm hi3798mv310_defconfig
+make ARCH=arm menuconfig
+cp .config arch/arm/configs/hi3798mv310_defconfig
+make distclean
+
+编译产物
+内核：out/hi3798mv310/hi3798mv31dmg/image/emmc_image/hi_kernel.bin
+模块：out/hi3798mv310/hi3798mv31dmg/kmod/
+-------------------
 Term:
 	$sdk_path: SDK code path
 	$chip_type: chip type
