@@ -124,6 +124,7 @@ endif
 
 ifeq ($(CFG_HI_WIFI_DEVICE_MT7668BS),y)
 objects += sdio_mt7668bs
+objects += hi_sdio_detect
 endif
 
 ifeq ($(CFG_HI_WIFI_DEVICE_AP6356P),y)
