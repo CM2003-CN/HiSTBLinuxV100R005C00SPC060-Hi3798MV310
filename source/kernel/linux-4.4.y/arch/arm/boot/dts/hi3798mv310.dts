@@ -48,6 +48,7 @@
 
 			cpu-map {
 				cluster0: cluster0 {
+					#cooling-cells = <2>;
 					core0 {
 						cpu = <&CPU0>;
 					};
