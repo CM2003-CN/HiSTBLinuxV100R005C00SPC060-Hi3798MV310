@@ -1426,6 +1426,15 @@ static int __init himciv300_pltm_probe(struct platform_device *pdev)
 		goto out;
 	}
 
+	/* 对 MT7668（SDIO2 @ f9c40000）清 UHS 位 */
+	/* dts 里声明 no-uhs 的节点，清掉 UHS 位，避免 CMD11 电压切换 */
+	if (of_property_read_bool(np, "no-uhs")) {
+		mmc->caps &= ~(MMC_CAP_UHS_SDR12 | MMC_CAP_UHS_SDR25 |
+				MMC_CAP_UHS_SDR50 | MMC_CAP_UHS_SDR104 |
+				MMC_CAP_UHS_DDR50);
+		dev_info(&pdev->dev, "UHS disabled by dts (no-uhs)\n");
+	}
+
 	mmc_add_host(mmc);
 
 	/* only support eMMC */

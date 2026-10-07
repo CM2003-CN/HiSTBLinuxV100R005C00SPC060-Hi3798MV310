@@ -168,7 +168,6 @@ static int platform_wifi_power_on(void)
 {
     int ret = 0;
     
-    pr_info("==-----------------------------==\n");
     pr_info("WiFi: Powering ON Wi-Fi module...\n");
 
     // Step 1: Enable WL_EN / REG_ON (GPIO 35)
@@ -177,17 +176,15 @@ static int platform_wifi_power_on(void)
         pr_err("Failed to power on Wi-Fi (GPIO set failed)\n");
         return ret;
     }
-    mdelay(1500);  // 延时等待电源稳定*****此处一般为100，但是在我的板上不稳定，所以加长了延时。
+    mdelay(200);  // 延时等待电源稳定*****
 
     // Step 2: 通知内核：插上了 SDIO 卡（拉低检测脚）
-    pr_info("==------------\n");
     ret = hisi_wlan_set_carddetect(1);
     if (ret != 0) {
         pr_err("Failed to set card detect\n");
         // 即使卡检测失败，也要继续执行，因为电源已经打开
     }
-    mdelay(2000);  // 等待模块初始化 & 驱动探测
-    pr_info("==------mdelay(2000)------\n");
+    mdelay(100);  // 等待模块初始化 & 驱动探测
     pr_info("WiFi: Power ON & Card Detect DONE.\n");
     return 0;
 }

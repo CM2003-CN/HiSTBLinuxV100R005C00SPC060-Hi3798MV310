@@ -507,6 +507,9 @@
 			caps = <0x8007000f>;
 			caps2 = <0x4000>;
 			max-frequency = <50000000>;
+
+			no-uhs;		// MT7668BS no uhs mode
+
 			status = "okay";
 		};
 
